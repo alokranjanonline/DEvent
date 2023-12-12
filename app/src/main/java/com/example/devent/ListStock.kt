@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.android.volley.Request
-import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONObject
@@ -25,6 +24,11 @@ class ListStock : AppCompatActivity() {
         val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.adapter = adapter
+
+        /*Show Testing Messages*/
+        var textAdCounter = findViewById<TextView>(R.id.textAdCounter)
+        textAdCounter.text= "Adcounter: "+MainActivity.adCounter.toString()
+        /*End Testing Messages*/
 
         swipeToRefresh(recyclerview)
         //Show mobile ad
@@ -57,7 +61,8 @@ class ListStock : AppCompatActivity() {
                         val stockName=jo.get("stockName").toString()
                         val stockDesc=jo.get("stockDesc").toString()
                         val stockExdate=jo.get("stockExdate").toString()
-                        val user=ItemsViewModel(stockId,stockName,stockDesc,stockExdate)
+                        val stockRecordDate=jo.get("stockRecordDate").toString()
+                        val user=ItemsViewModel(stockId,stockName,stockDesc,stockExdate,stockRecordDate)
                         list.add(user)
                     }
                     adapter.notifyDataSetChanged()

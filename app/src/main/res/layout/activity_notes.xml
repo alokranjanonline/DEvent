@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<!--
+https://www.nseindia.com/companies-listing/corporate-filings-actions
+https://www.bseindia.com/corporates/corporates_act.html?expandable=0
+https://github.com/1902shubh/TabLayout
+https://d2dreamdevelopers.blogspot.com/2021/04/tab-layout-with-viewpager-using-fragment.html
+
+-->
+</LinearLayout>

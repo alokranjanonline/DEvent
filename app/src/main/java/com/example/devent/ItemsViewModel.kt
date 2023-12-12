@@ -9,6 +9,7 @@ import android.widget.ImageView
 data class ItemsViewModel( val stockId: String,
                            val stockName: String,
                            val stockDetails:String,
-                           val stockExdate:String) {
+                           val stockExdate:String,
+                           val stockRecordDate:String) {
 }
 

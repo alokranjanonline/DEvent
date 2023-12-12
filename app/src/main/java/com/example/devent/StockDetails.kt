@@ -14,7 +14,18 @@ class StockDetails : AppCompatActivity() {
         val str = intent.getStringExtra("stockId")
         actionbar!!.title=intent.getStringExtra("stockName")
         val stocksDetails = findViewById<TextView>(R.id.scriptDetails)
-        stocksDetails.text= intent.getStringExtra("stockDetails")
+        val stockExdate = findViewById<TextView>(R.id.scriptExDate)
+        val scriptRecordDate = findViewById<TextView>(R.id.scriptRecordDate)
+        stocksDetails.text= "Stock Name: "+intent.getStringExtra("stockDetails")
+        stockExdate.text= "Stock Ex Date: "+intent.getStringExtra("stockExdate")
+        scriptRecordDate.text= "Stock Record Date: "+intent.getStringExtra("stockRecordDate")
+
+
+        /*Show Testing Messages*/
+        var textAdCounter = findViewById<TextView>(R.id.textAdCounter)
+        textAdCounter.text= "Adcounter: "+MainActivity.adCounter.toString()
+        /*End Testing Messages*/
+
         show_banner_ads(mAdView,this)
     }
 }

@@ -8,12 +8,6 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.util.Log
-import android.widget.TextView
-import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -45,7 +39,8 @@ fun loadInterestitialAd(context: Context, holder:CustomAdapter.ViewHolder){
         }
     })
 }
-fun showInterestitialAd(context: Context,holder:CustomAdapter.ViewHolder, activity: Activity,stockId:Int,stockName:String,stockDetails:String){
+fun showInterestitialAd(context: Context,holder:CustomAdapter.ViewHolder, activity: Activity,stockId:Int,
+                        stockName:String,stockDetails:String,stockExdate:String,stockRecordDate:String){
     mInterstitialAd?.fullScreenContentCallback = object: FullScreenContentCallback() {
         override fun onAdClicked() {
             // Called when a click is recorded for an ad.
@@ -63,6 +58,8 @@ fun showInterestitialAd(context: Context,holder:CustomAdapter.ViewHolder, activi
             intent.putExtra("stockId", stockId)
             intent.putExtra("stockName", stockName)
             intent.putExtra("stockDetails", stockDetails)
+            intent.putExtra("stockExdate", stockExdate)
+            intent.putExtra("stockRecordDate", stockRecordDate)
             context.startActivity(intent)
         }
 
@@ -93,6 +90,8 @@ fun showInterestitialAd(context: Context,holder:CustomAdapter.ViewHolder, activi
         intent.putExtra("stockId", stockId)
         intent.putExtra("stockName", stockName)
         intent.putExtra("stockDetails", stockDetails)
+        intent.putExtra("stockExdate", stockExdate)
+        intent.putExtra("stockRecordDate", stockRecordDate)
         context.startActivity(intent)
     }
 }
