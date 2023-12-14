@@ -22,7 +22,7 @@
         android:layout_marginBottom="100dp"
         android:id="@+id/textErrorDisplay"
         android:visibility="visible"
-        android:text="Hello Sed"/>
+        android:text="Display Error Here"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

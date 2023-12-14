@@ -21,7 +21,7 @@ class CustomAdapter(private val mList: List<ItemsViewModel>, var context:Context
 
     // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //loadInterestitialAd(context, holder)
+        loadInterestitialAd(context, holder)
         val ItemsViewModel = mList[position]
         holder.textView1.text = ItemsViewModel.stockId
         holder.textView.text = ItemsViewModel.stockName

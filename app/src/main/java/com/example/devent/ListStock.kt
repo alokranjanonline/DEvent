@@ -36,6 +36,21 @@ class ListStock : AppCompatActivity() {
             }
         }.attach()
 
+
+        /*Show Testing Messages*/
+        var textAdCounter = findViewById<TextView>(R.id.textAdCounter)
+        textAdCounter.text= "Adcounter: "+MainActivity.adCounter.toString()
+        val textShow_error_msg = findViewById<TextView>(R.id.textErrorDisplay)
+        if(checkForInternet(this) == false){
+            textShow_error_msg.text="Please check your Internet connection."
+        }
+        textShow_error_msg.setOnClickListener {
+                val mIntent = intent
+                finish()
+                startActivity(mIntent)
+        }
+        /*End Testing Messages*/
+        //Show mobile ad
         show_banner_ads(mAdView,this)
     }
 
@@ -49,10 +64,7 @@ class ListStock : AppCompatActivity() {
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.adapter = adapter
 
-        /*Show Testing Messages*/
-        var textAdCounter = findViewById<TextView>(R.id.textAdCounter)
-        textAdCounter.text= "Adcounter: "+MainActivity.adCounter.toString()
-        /*End Testing Messages*/
+
 
         //Show mobile ad
         show_banner_ads(mAdView,this)*/

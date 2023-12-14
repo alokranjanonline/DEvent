@@ -8,7 +8,12 @@
     tools:context=".DividendFragment">
 
 
-
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/progress_circular"
+            android:visibility="visible"/>
         <TextView
             android:layout_width="match_parent"
             android:id="@+id/profile"
