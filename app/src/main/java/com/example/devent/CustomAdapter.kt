@@ -23,20 +23,20 @@ class CustomAdapter(private val mList: List<ItemsViewModel>, var context:Context
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         loadInterestitialAd(context, holder)
         val ItemsViewModel = mList[position]
-        holder.textView1.text = ItemsViewModel.stockId
-        holder.textView.text = ItemsViewModel.stockName
-        holder.textView2.text = ItemsViewModel.stockDetails
+        holder.textView.text = ItemsViewModel.stockSymbol
+        holder.textView1.text = ItemsViewModel.stockPurpose
+        holder.textView2.text = ItemsViewModel.stockExdate
         holder.itemView.setOnClickListener{
             if(adCounter==5){
                 showInterestitialAd(context, holder, StockDetails(),ItemsViewModel.stockId.toInt(),
-                    ItemsViewModel.stockName,ItemsViewModel.stockDetails,ItemsViewModel.stockExdate,
+                    ItemsViewModel.stockName,ItemsViewModel.stockPurpose,ItemsViewModel.stockExdate,
                     ItemsViewModel.stockRecordDate)
                 adCounter=0
             }else{
                 val intent = Intent(context, StockDetails::class.java)
                 intent.putExtra("stockId", ItemsViewModel.stockId.toInt() )
                 intent.putExtra("stockName", ItemsViewModel.stockName)
-                intent.putExtra("stockDetails", ItemsViewModel.stockDetails)
+                intent.putExtra("stockPurpose", ItemsViewModel.stockPurpose)
                 intent.putExtra("stockExdate", ItemsViewModel.stockExdate)
                 intent.putExtra("stockRecordDate", ItemsViewModel.stockRecordDate)
                 context.startActivity(intent)

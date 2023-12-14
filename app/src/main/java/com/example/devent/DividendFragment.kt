@@ -63,11 +63,13 @@ class DividendFragment : Fragment() {
                     for(i in 0.. jsonArray.length()-1){
                         val jo=jsonArray.getJSONObject(i)
                         val stockId=jo.get("stockId").toString()
+                        val stockSymbol=jo.get("stockSymbol").toString()
                         val stockName=jo.get("stockName").toString()
-                        val stockDesc=jo.get("stockDesc").toString()
                         val stockExdate=jo.get("stockExdate").toString()
                         val stockRecordDate=jo.get("stockRecordDate").toString()
-                        val user=ItemsViewModel(stockId,stockName,stockDesc,stockExdate,stockRecordDate)
+                        val stockPurpose=jo.get("stockPurpose").toString()
+                        val stockEntryType=jo.get("stockEntryType").toString()
+                        val user=ItemsViewModel(stockId,stockSymbol,stockName,stockExdate,stockRecordDate,stockPurpose,stockEntryType)
                         list.add(user)
                     }
                     adapter.notifyDataSetChanged()

@@ -35,7 +35,7 @@ fun loadInterestitialAd(context: Context, holder:CustomAdapter.ViewHolder){
 
         override fun onAdLoaded(interstitialAd: InterstitialAd) {
             mInterstitialAd = interstitialAd
-            holder.textView.text="Ad Loaded"
+            //holder.textView.text="Ad Loaded"
         }
     })
 }
