@@ -29,6 +29,8 @@ class DividendFragment : Fragment() {
         super.onViewCreated(view,savedInstanceState)
 
         val adapter = CustomAdapter(list, view.context)
+        val progressCircular = view.findViewById<View>(R.id.progress_circular)
+        progressCircular.visibility=View.VISIBLE
         //Fetch Data from server
         fetch_datea(view.context,adapter)
         //Fetch Data from server
@@ -37,8 +39,8 @@ class DividendFragment : Fragment() {
         recyclerview!!.layoutManager = LinearLayoutManager(activity)
         recyclerview!!.adapter = adapter
 
-        val progressCircular = view.findViewById<View>(R.id.progress_circular)
-        progressCircular.visibility=View.INVISIBLE
+
+
 
         val swipeRefreshLayout: SwipeRefreshLayout = view.findViewById(R.id.swipe)
         swipeRefreshLayout.setOnRefreshListener {
@@ -47,6 +49,7 @@ class DividendFragment : Fragment() {
             recyclerview!!.setAdapter(adapter)
             swipeRefreshLayout.isRefreshing = false
         }
+        progressCircular.visibility=View.INVISIBLE
         return view//inflater.inflate(R.layout.fragment_profile, container, false)
     }
 

@@ -1,19 +1,14 @@
 package com.example.devent
 
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
-import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
-import com.android.volley.Request
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import org.json.JSONObject
+
 
 class ListStock : AppCompatActivity() {
     private var list:ArrayList<ItemsViewModel> = ArrayList()
@@ -36,13 +31,16 @@ class ListStock : AppCompatActivity() {
             }
         }.attach()
 
-
         /*Show Testing Messages*/
         var textAdCounter = findViewById<TextView>(R.id.textAdCounter)
         textAdCounter.text= "Adcounter: "+MainActivity.adCounter.toString()
         val textShow_error_msg = findViewById<TextView>(R.id.textErrorDisplay)
+        val textRefresh = findViewById<TextView>(R.id.textRefresh)
         if(checkForInternet(this) == false){
-            textShow_error_msg.text="Please check your Internet connection."
+            textRefresh.visibility= View.VISIBLE
+            textShow_error_msg.visibility= View.VISIBLE
+            textShow_error_msg.text="Failed to load data."
+            textRefresh.text="RETRY"
         }
         textShow_error_msg.setOnClickListener {
                 val mIntent = intent
