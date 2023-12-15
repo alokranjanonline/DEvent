@@ -26,11 +26,11 @@ lateinit var  mAdView : AdView
 private var mInterstitialAd: InterstitialAd? = null
 var adRequest = AdRequest.Builder().build()
 var number: Int = 0
-fun loadInterestitialAd(context: Context, holder:CustomAdapter.ViewHolder){
-    InterstitialAd.load(context,"ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
+fun loadInterestitialAd(context: Context, holder:CustomAdapter.ViewHolder,gIntAd:String){
+    InterstitialAd.load(context,gIntAd, adRequest, object : InterstitialAdLoadCallback() {
         override fun onAdFailedToLoad(adError: LoadAdError) {
             mInterstitialAd = null
-            holder.textView.text="Not Loaded"
+            //holder.textView.text="Not Loaded"
         }
 
         override fun onAdLoaded(interstitialAd: InterstitialAd) {
@@ -39,8 +39,10 @@ fun loadInterestitialAd(context: Context, holder:CustomAdapter.ViewHolder){
         }
     })
 }
-fun showInterestitialAd(context: Context,holder:CustomAdapter.ViewHolder, activity: Activity,stockId:Int,
-                        stockName:String,stockDetails:String,stockExdate:String,stockRecordDate:String){
+fun showInterestitialAd(context: Context,holder:CustomAdapter.ViewHolder, activity: Activity,
+                        stockId:Int,stockSymbol:String,stockName:String,
+                        stockExdate:String,stockRecordDate:String,
+                        stockPurpose:String){
     mInterstitialAd?.fullScreenContentCallback = object: FullScreenContentCallback() {
         override fun onAdClicked() {
             // Called when a click is recorded for an ad.
@@ -56,10 +58,11 @@ fun showInterestitialAd(context: Context,holder:CustomAdapter.ViewHolder, activi
             val intent = Intent(context, activity::class.java)
             intent.putExtra("message_key", "Hello Alok")
             intent.putExtra("stockId", stockId)
+            intent.putExtra("stockSymbol", stockSymbol)
             intent.putExtra("stockName", stockName)
-            intent.putExtra("stockDetails", stockDetails)
             intent.putExtra("stockExdate", stockExdate)
             intent.putExtra("stockRecordDate", stockRecordDate)
+            intent.putExtra("stockPurpose", stockPurpose)
             context.startActivity(intent)
         }
 
@@ -88,10 +91,11 @@ fun showInterestitialAd(context: Context,holder:CustomAdapter.ViewHolder, activi
         holder.textView.text="The interstitial ad wasn't ready yet."
         val intent = Intent(context, activity::class.java)
         intent.putExtra("stockId", stockId)
+        intent.putExtra("stockSymbol", stockSymbol)
         intent.putExtra("stockName", stockName)
-        intent.putExtra("stockDetails", stockDetails)
         intent.putExtra("stockExdate", stockExdate)
         intent.putExtra("stockRecordDate", stockRecordDate)
+        intent.putExtra("stockPurpose", stockPurpose)
         context.startActivity(intent)
     }
 }

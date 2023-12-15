@@ -13,10 +13,14 @@ class StockDetails : AppCompatActivity() {
         val actionbar=supportActionBar
         val str = intent.getStringExtra("stockId")
         actionbar!!.title=intent.getStringExtra("stockName")
-        val stocksDetails = findViewById<TextView>(R.id.scriptDetails)
+        val stockSymbol = findViewById<TextView>(R.id.scriptSymbol)
+        val stocksName = findViewById<TextView>(R.id.scriptName)
         val stockExdate = findViewById<TextView>(R.id.scriptExDate)
         val scriptRecordDate = findViewById<TextView>(R.id.scriptRecordDate)
-        stocksDetails.text= "Stock Name: "+intent.getStringExtra("stockDetails")
+        val stockPurpose = findViewById<TextView>(R.id.scriptPurpose)
+        stockSymbol.text= "Stock Sybol: "+intent.getStringExtra("stockSymbol")
+        stocksName.text= "Stock Name: "+intent.getStringExtra("stockName")
+        stockPurpose.text="Purpose: "+intent.getStringExtra("stockPurpose")
         stockExdate.text= "Stock Ex Date: "+intent.getStringExtra("stockExdate")
         scriptRecordDate.text= "Stock Record Date: "+intent.getStringExtra("stockRecordDate")
 

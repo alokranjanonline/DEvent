@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.devent.MainActivity.Companion.adCounter
+import com.example.devent.MainActivity.Companion.gIntAd
 
 class CustomAdapter(private val mList: List<ItemsViewModel>, var context:Context) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
@@ -21,24 +22,26 @@ class CustomAdapter(private val mList: List<ItemsViewModel>, var context:Context
 
     // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        loadInterestitialAd(context, holder)
+        loadInterestitialAd(context, holder,gIntAd)
         val ItemsViewModel = mList[position]
         holder.textView.text = ItemsViewModel.stockSymbol
         holder.textView1.text = ItemsViewModel.stockPurpose
         holder.textView2.text = ItemsViewModel.stockExdate
         holder.itemView.setOnClickListener{
-            if(adCounter==5){
-                showInterestitialAd(context, holder, StockDetails(),ItemsViewModel.stockId.toInt(),
-                    ItemsViewModel.stockName,ItemsViewModel.stockPurpose,ItemsViewModel.stockExdate,
-                    ItemsViewModel.stockRecordDate)
+            if(adCounter==1){
+                showInterestitialAd(context, holder, StockDetails(),
+                    ItemsViewModel.stockId.toInt(),ItemsViewModel.stockSymbol,
+                    ItemsViewModel.stockName,ItemsViewModel.stockExdate,
+                    ItemsViewModel.stockRecordDate,ItemsViewModel.stockPurpose)
                 adCounter=0
             }else{
                 val intent = Intent(context, StockDetails::class.java)
                 intent.putExtra("stockId", ItemsViewModel.stockId.toInt() )
+                intent.putExtra("stockSymbol", ItemsViewModel.stockSymbol)
                 intent.putExtra("stockName", ItemsViewModel.stockName)
-                intent.putExtra("stockPurpose", ItemsViewModel.stockPurpose)
                 intent.putExtra("stockExdate", ItemsViewModel.stockExdate)
                 intent.putExtra("stockRecordDate", ItemsViewModel.stockRecordDate)
+                intent.putExtra("stockPurpose", ItemsViewModel.stockPurpose)
                 context.startActivity(intent)
             }
             adCounter++
