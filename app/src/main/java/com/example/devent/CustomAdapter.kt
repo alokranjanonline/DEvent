@@ -5,9 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.devent.MainActivity.Companion.adCounter
 import com.example.devent.MainActivity.Companion.gIntAd
@@ -26,7 +24,7 @@ class CustomAdapter(private val mList: List<ItemsViewModel>, var context:Context
         val ItemsViewModel = mList[position]
         holder.textView.text = ItemsViewModel.stockSymbol
         holder.textView1.text = ItemsViewModel.stockPurpose
-        holder.textView2.text = ItemsViewModel.stockExdate
+        holder.textView2.text = ItemsViewModel.stockExdate.toString()
         holder.itemView.setOnClickListener{
             if(adCounter==1){
                 showInterestitialAd(context, holder, StockDetails(),

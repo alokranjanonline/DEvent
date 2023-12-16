@@ -14,16 +14,6 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONObject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SplitFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SplitFragment : Fragment() {
     private var list:ArrayList<ItemsViewModel> = ArrayList()
     private var recyclerview: RecyclerView? = null
@@ -36,8 +26,8 @@ class SplitFragment : Fragment() {
         super.onViewCreated(view,savedInstanceState)
 
         val adapter = CustomAdapter(list, view.context)
-        val progressCircular = view.findViewById<View>(R.id.progress_circular)
-        progressCircular.visibility=View.VISIBLE
+        //val progressCircular = view.findViewById<View>(R.id.progress_circular)
+        //progressCircular.visibility=View.VISIBLE
         //Fetch Data from server
         fetch_datea(view.context,adapter)
         //Fetch Data from server
@@ -53,7 +43,7 @@ class SplitFragment : Fragment() {
             recyclerview!!.setAdapter(adapter)
             swipeRefreshLayout.isRefreshing = false
         }
-        progressCircular.visibility=View.INVISIBLE
+        //progressCircular.visibility=View.INVISIBLE
         return view//inflater.inflate(R.layout.fragment_profile, container, false)
     }
     fun fetch_datea(view: Context, adapter:CustomAdapter){

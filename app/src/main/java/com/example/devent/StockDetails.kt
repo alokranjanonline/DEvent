@@ -1,13 +1,10 @@
 package com.example.devent
 
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayout
+import java.text.SimpleDateFormat
 
 
 class StockDetails : AppCompatActivity() {
@@ -28,11 +25,11 @@ class StockDetails : AppCompatActivity() {
         val stockExdate = findViewById<TextView>(R.id.scriptExDate)
         val scriptRecordDate = findViewById<TextView>(R.id.scriptRecordDate)
         val stockPurpose = findViewById<TextView>(R.id.scriptPurpose)
-        stockSymbol.text= "Stock Sybol: "+intent.getStringExtra("stockSymbol")
-        stocksName.text= "Stock Name: "+intent.getStringExtra("stockName")
-        stockPurpose.text="Purpose: "+intent.getStringExtra("stockPurpose")
-        stockExdate.text= "Stock Ex Date: "+intent.getStringExtra("stockExdate")
-        scriptRecordDate.text= "Stock Record Date: "+intent.getStringExtra("stockRecordDate")
+        stockSymbol.text= intent.getStringExtra("stockSymbol")
+        stocksName.text= intent.getStringExtra("stockName")
+        stockPurpose.text=intent.getStringExtra("stockPurpose")
+        stockExdate.text= intent.getStringExtra("stockExdate")
+        scriptRecordDate.text= intent.getStringExtra("stockRecordDate")
 
 
         /*Show Testing Messages*/

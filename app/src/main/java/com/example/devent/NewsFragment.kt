@@ -26,8 +26,8 @@ class NewsFragment : Fragment() {
         super.onViewCreated(view,savedInstanceState)
 
         val adapter = CustomAdapter(list, view.context)
-        val progressCircular = view.findViewById<View>(R.id.progress_circular)
-        progressCircular.visibility=View.VISIBLE
+        //val progressCircular = view.findViewById<View>(R.id.progress_circular)
+        //progressCircular.visibility=View.VISIBLE
         //Fetch Data from server
         fetch_datea(view.context,adapter)
         //Fetch Data from server
@@ -43,7 +43,7 @@ class NewsFragment : Fragment() {
             recyclerview!!.setAdapter(adapter)
             swipeRefreshLayout.isRefreshing = false
         }
-        progressCircular.visibility=View.INVISIBLE
+        //progressCircular.visibility=View.INVISIBLE
         return view//inflater.inflate(R.layout.fragment_profile, container, false)
     }
     fun fetch_datea(view: Context, adapter:CustomAdapter){

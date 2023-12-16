@@ -3,6 +3,8 @@ package com.example.devent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
+import android.view.View.VISIBLE
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
@@ -11,12 +13,16 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 
 class ListStock : AppCompatActivity() {
+
     private var list:ArrayList<ItemsViewModel> = ArrayList()
-    private val adapter = CustomAdapter(list,this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_stock)
         mAdView = findViewById(R.id.adView)
+
+        //val progressCircular = findViewById<ProgressBar>(R.id.progress_circular)
+        //progressCircular.visibility=VISIBLE
+
 
         val mViewPager: ViewPager2 =findViewById(R.id.my_view_pager)
         val mTabLayout: TabLayout =findViewById(R.id.my_tab_layout)
@@ -51,49 +57,7 @@ class ListStock : AppCompatActivity() {
         //Show mobile ad
         show_banner_ads(mAdView,this)
     }
-
-
-        /*super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list_stock)
-        mAdView = findViewById(R.id.adView)
-        fetch_data()
-        //Coding for RecycleVIew
-        val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
-        recyclerview.layoutManager = LinearLayoutManager(this)
-        recyclerview.adapter = adapter
+}
 
 
 
-        //Show mobile ad
-        show_banner_ads(mAdView,this)*/
-    }
-
-
-    /*fun fetch_data(){
-        val queue = Volley.newRequestQueue(this)
-        val url = "http://springtown.in/test/fetch_stock.php"
-        val textShow_error_msg = findViewById<TextView>(R.id.textErrorDisplay)
-        val stringRequest = StringRequest( Request.Method.GET, url,
-            { response ->
-                //textShow_error_msg.text = "Response is: ${response}"
-                val jsonObject= JSONObject(response)
-                if(jsonObject.get("response").equals("sucess")){
-                    val jsonArray=jsonObject.getJSONArray("data")
-                    for(i in 0.. jsonArray.length()-1){
-                        val jo=jsonArray.getJSONObject(i)
-                        val stockId=jo.get("stockId").toString()
-                        val stockName=jo.get("stockName").toString()
-                        val stockDesc=jo.get("stockDesc").toString()
-                        val stockExdate=jo.get("stockExdate").toString()
-                        val stockRecordDate=jo.get("stockRecordDate").toString()
-                        val user=ItemsViewModel(stockId,stockName,stockDesc,stockExdate,stockRecordDate)
-                        list.add(user)
-                    }
-                    adapter.notifyDataSetChanged()
-                }else{
-                    Toast.makeText(this, "There is some problem.", Toast.LENGTH_SHORT).show()
-                }
-            },
-            { textShow_error_msg.text = "There is some problem. Please try again." })
-        queue.add(stringRequest)
-    }*/

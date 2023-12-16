@@ -8,7 +8,6 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.util.Log
-import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.gms.ads.AdError
@@ -20,6 +19,7 @@ import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import org.json.JSONObject
+import java.util.Date
 
 
 lateinit var  mAdView : AdView
@@ -39,10 +39,11 @@ fun loadInterestitialAd(context: Context, holder:CustomAdapter.ViewHolder,gIntAd
         }
     })
 }
-fun showInterestitialAd(context: Context,holder:CustomAdapter.ViewHolder, activity: Activity,
-                        stockId:Int,stockSymbol:String,stockName:String,
-                        stockExdate:String,stockRecordDate:String,
-                        stockPurpose:String){
+fun showInterestitialAd(
+    context: Context, holder:CustomAdapter.ViewHolder, activity: Activity,
+    stockId:Int, stockSymbol:String, stockName:String,
+    stockExdate: String, stockRecordDate:String,
+    stockPurpose:String){
     mInterstitialAd?.fullScreenContentCallback = object: FullScreenContentCallback() {
         override fun onAdClicked() {
             // Called when a click is recorded for an ad.
