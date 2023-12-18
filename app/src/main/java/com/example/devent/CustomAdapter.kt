@@ -26,7 +26,7 @@ class CustomAdapter(private val mList: List<ItemsViewModel>, var context:Context
         holder.textView1.text = ItemsViewModel.stockPurpose
         holder.textView2.text = ItemsViewModel.stockExdate.toString()
         holder.itemView.setOnClickListener{
-            if(adCounter==1){
+            if(adCounter==3){
                 showInterestitialAd(context, holder, StockDetails(),
                     ItemsViewModel.stockId.toInt(),ItemsViewModel.stockSymbol,
                     ItemsViewModel.stockName,ItemsViewModel.stockExdate,

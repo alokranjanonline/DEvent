@@ -35,7 +35,9 @@ class NewsFragment : Fragment() {
         recyclerview = view.findViewById<View>(R.id.recyclerview) as RecyclerView
         recyclerview!!.layoutManager = LinearLayoutManager(activity)
         recyclerview!!.adapter = adapter
-
+        if(adapter!=null){
+            progressCircular.visibility=View.INVISIBLE
+        }
 
 
         val swipeRefreshLayout: SwipeRefreshLayout = view.findViewById(R.id.swipe)
@@ -43,7 +45,7 @@ class NewsFragment : Fragment() {
             recyclerview!!.setAdapter(adapter)
             swipeRefreshLayout.isRefreshing = false
         }
-        progressCircular.visibility=View.INVISIBLE
+
         return view//inflater.inflate(R.layout.fragment_profile, container, false)
     }
     fun fetch_datea(view: Context, adapter:CustomAdapter){

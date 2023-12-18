@@ -48,13 +48,13 @@ fun showInterestitialAd(
         override fun onAdClicked() {
             // Called when a click is recorded for an ad.
             //holder.textView.text="Ad was clicked."
-            Log.d(ContentValues.TAG, "Ad was clicked.")
+            //Log.d(ContentValues.TAG, "Ad was clicked.")
         }
 
         override fun onAdDismissedFullScreenContent() {
             // Called when ad is dismissed.
-            Log.d(ContentValues.TAG, "Ad dismissed fullscreen content.")
-            holder.textView.text="Ad dismissed fullscreen content."
+            //Log.d(ContentValues.TAG, "Ad dismissed fullscreen content.")
+            //holder.textView.text="Ad dismissed fullscreen content."
             mInterstitialAd = null
             val intent = Intent(context, activity::class.java)
             intent.putExtra("message_key", "Hello Alok")
@@ -69,27 +69,27 @@ fun showInterestitialAd(
 
         override fun onAdFailedToShowFullScreenContent(p0: AdError) {
             // Called when ad fails to show.
-            holder.textView.text="Ad failed to show fullscreen content."
+            //holder.textView.text="Ad failed to show fullscreen content."
             mInterstitialAd = null
         }
 
         override fun onAdImpression() {
             // Called when an impression is recorded for an ad.
-            Log.d(ContentValues.TAG, "Ad recorded an impression.")
-            holder.textView.text="Ad recorded an impression."
+            //Log.d(ContentValues.TAG, "Ad recorded an impression.")
+            //holder.textView.text="Ad recorded an impression."
         }
 
         override fun onAdShowedFullScreenContent() {
             // Called when ad is shown.
-            holder.textView.text="Ad showed fullscreen content."
-            Log.d(ContentValues.TAG, "Ad showed fullscreen content.")
+            //holder.textView.text="Ad showed fullscreen content."
+            //Log.d(ContentValues.TAG, "Ad showed fullscreen content.")
         }
     }
     if (mInterstitialAd != null) {
         mInterstitialAd?.show( context as Activity)
 
     } else {
-        holder.textView.text="The interstitial ad wasn't ready yet."
+        //holder.textView.text="The interstitial ad wasn't ready yet."
         val intent = Intent(context, activity::class.java)
         intent.putExtra("stockId", stockId)
         intent.putExtra("stockSymbol", stockSymbol)
