@@ -1,15 +1,11 @@
 package com.example.devent
 
 import android.app.Activity
-import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-import android.util.Log
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
@@ -18,14 +14,12 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
-import org.json.JSONObject
-import java.util.Date
+
 
 
 lateinit var  mAdView : AdView
 private var mInterstitialAd: InterstitialAd? = null
 var adRequest = AdRequest.Builder().build()
-var number: Int = 0
 fun loadInterestitialAd(context: Context, holder:CustomAdapter.ViewHolder,gIntAd:String){
     InterstitialAd.load(context,gIntAd, adRequest, object : InterstitialAdLoadCallback() {
         override fun onAdFailedToLoad(adError: LoadAdError) {

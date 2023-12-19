@@ -4,14 +4,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import java.text.SimpleDateFormat
 
 
 class StockDetails : AppCompatActivity() {
-    //private val adapter = CustomAdapter(list,this)
-    //val mViewPager: ViewPager2 =findViewById(R.id.my_view_pager)
-    //val mTabLayout: TabLayout =findViewById(R.id.my_tab_layout)
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

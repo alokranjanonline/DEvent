@@ -60,6 +60,7 @@
         <activity
             android:name=".ListStock"
             android:exported="false"
+            android:launchMode="singleTop"
             android:theme="@style/Theme.DEvent.Alok"/>
         <activity
             android:name=".MainActivity"

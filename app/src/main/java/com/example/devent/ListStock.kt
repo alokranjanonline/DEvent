@@ -1,6 +1,5 @@
 package com.example.devent
 
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import android.view.View.VISIBLE

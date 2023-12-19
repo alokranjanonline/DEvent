@@ -23,7 +23,11 @@ class CustomAdapter(private val mList: List<ItemsViewModel>, var context:Context
         loadInterestitialAd(context, holder,gIntAd)
         val ItemsViewModel = mList[position]
         holder.textView.text = ItemsViewModel.stockSymbol
-        holder.textView1.text = ItemsViewModel.stockPurpose
+        if (ItemsViewModel.stockPurpose.length > 43) {
+            holder.textView1.text = ItemsViewModel.stockPurpose.take(43)+"  ...."
+        }else{
+            holder.textView1.text = ItemsViewModel.stockPurpose
+        }
         holder.textView2.text = ItemsViewModel.stockExdate.toString()
         holder.itemView.setOnClickListener{
             if(adCounter==3){
