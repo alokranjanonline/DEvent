@@ -43,7 +43,9 @@ class DividendFragment : Fragment() {
         swipeRefreshLayout.setOnRefreshListener {
             //val textShow_error_msg = view.findViewById<TextView>(R.id.textErrorDisplay)
             //textShow_error_msg.text = number++.toString()
+            list.clear()
             recyclerview!!.setAdapter(adapter)
+            fetch_datea(view.context,adapter)
             swipeRefreshLayout.isRefreshing = false
         }
         progressCircular.visibility=View.INVISIBLE

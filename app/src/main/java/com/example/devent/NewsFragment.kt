@@ -42,7 +42,9 @@ class NewsFragment : Fragment() {
 
         val swipeRefreshLayout: SwipeRefreshLayout = view.findViewById(R.id.swipe)
         swipeRefreshLayout.setOnRefreshListener {
+            list.clear()
             recyclerview!!.setAdapter(adapter)
+            fetch_datea(view.context,adapter)
             swipeRefreshLayout.isRefreshing = false
         }
 
