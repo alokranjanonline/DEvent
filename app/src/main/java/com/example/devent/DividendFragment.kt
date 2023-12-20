@@ -5,7 +5,10 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,15 +24,14 @@ class DividendFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         val view:View=inflater.inflate(R.layout.fragment_dividend, container, false)
         super.onViewCreated(view,savedInstanceState)
 
         val adapter = CustomAdapter(list, view.context)
-        val progressCircular = view.findViewById<View>(R.id.progress_circular)
         //Fetch Data from server
-        fetch_datea(view.context,adapter)
+        fetchDatea(view.context,adapter,view)
         //Fetch Data from server
 
         recyclerview = view.findViewById<View>(R.id.recyclerview) as RecyclerView
@@ -37,30 +39,30 @@ class DividendFragment : Fragment() {
         recyclerview!!.adapter = adapter
 
 
-
-
         val swipeRefreshLayout: SwipeRefreshLayout = view.findViewById(R.id.swipe)
         swipeRefreshLayout.setOnRefreshListener {
-            //val textShow_error_msg = view.findViewById<TextView>(R.id.textErrorDisplay)
-            //textShow_error_msg.text = number++.toString()
             list.clear()
-            recyclerview!!.setAdapter(adapter)
-            fetch_datea(view.context,adapter)
+            //recyclerview!!.setAdapter(adapter)
+            fetchDatea(view.context,adapter,view)
+            val progressCircular = view.findViewById<ProgressBar>(R.id.progress_circular)
+            progressCircular.visibility= View.VISIBLE
             swipeRefreshLayout.isRefreshing = false
         }
-        progressCircular.visibility=View.INVISIBLE
+
         return view//inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
-    fun fetch_datea(view:Context, adapter:CustomAdapter){
+    private fun fetchDatea(view:Context, adapter:CustomAdapter,viewProgressbar: View){
         val queue = Volley.newRequestQueue(view)
         val url = "http://springtown.in/test/fetch_stock.php?stockEntryType=1"
-        //val textShow_error_msg = view.findViewById<TextView>(R.id.textErrorDisplay)
+        val textShow_error_msg = viewProgressbar.findViewById<TextView>(R.id.textErrorDisplay)
         val stringRequest = StringRequest( Request.Method.GET, url,
             { response ->
                 //textShow_error_msg.text = "Response is: ${response}"
                 val jsonObject= JSONObject(response)
                 if(jsonObject.get("response").equals("sucess")){
+                    val progressCircular = viewProgressbar.findViewById<ProgressBar>(R.id.progress_circular)
+                    progressCircular.visibility=INVISIBLE
                     val jsonArray=jsonObject.getJSONArray("data")
                     for(i in 0.. jsonArray.length()-1){
                         val jo=jsonArray.getJSONObject(i)
@@ -79,7 +81,7 @@ class DividendFragment : Fragment() {
                     Toast.makeText(view, "There is some problem.", Toast.LENGTH_SHORT).show()
                 }
             },
-            { /*textShow_error_msg.text = "There is some problem. Please try again."*/ })
+            { textShow_error_msg.text = "There is some problem. Please try again." })
         queue.add(stringRequest)
     }
 

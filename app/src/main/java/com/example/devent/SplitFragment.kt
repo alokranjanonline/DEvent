@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,9 +29,8 @@ class SplitFragment : Fragment() {
         super.onViewCreated(view,savedInstanceState)
 
         val adapter = CustomAdapter(list, view.context)
-        val progressCircular = view.findViewById<View>(R.id.progress_circular)
         //Fetch Data from server
-        fetch_datea(view.context,adapter)
+        fetch_datea(view.context,adapter,view)
         //Fetch Data from server
 
         recyclerview = view.findViewById<View>(R.id.recyclerview) as RecyclerView
@@ -41,22 +42,24 @@ class SplitFragment : Fragment() {
         val swipeRefreshLayout: SwipeRefreshLayout = view.findViewById(R.id.swipe)
         swipeRefreshLayout.setOnRefreshListener {
             list.clear()
-            recyclerview!!.setAdapter(adapter)
-            fetch_datea(view.context,adapter)
+            fetch_datea(view.context,adapter,view)
+            val progressCircular = view.findViewById<ProgressBar>(R.id.progress_circular)
+            progressCircular.visibility= View.VISIBLE
             swipeRefreshLayout.isRefreshing = false
         }
-        progressCircular.visibility=View.INVISIBLE
         return view//inflater.inflate(R.layout.fragment_profile, container, false)
     }
-    fun fetch_datea(view: Context, adapter:CustomAdapter){
+    fun fetch_datea(view: Context, adapter:CustomAdapter,viewProgressbar: View){
         val queue = Volley.newRequestQueue(view)
         val url = "http://springtown.in/test/fetch_stock.php?stockEntryType=2"
-        //val textShow_error_msg = view.findViewById<TextView>(R.id.textErrorDisplay)
+        val textShow_error_msg = viewProgressbar.findViewById<TextView>(R.id.textErrorDisplay)
         val stringRequest = StringRequest( Request.Method.GET, url,
             { response ->
                 //textShow_error_msg.text = "Response is: ${response}"
                 val jsonObject= JSONObject(response)
                 if(jsonObject.get("response").equals("sucess")){
+                    val progressCircular = viewProgressbar.findViewById<ProgressBar>(R.id.progress_circular)
+                    progressCircular.visibility= View.INVISIBLE
                     val jsonArray=jsonObject.getJSONArray("data")
                     for(i in 0.. jsonArray.length()-1){
                         val jo=jsonArray.getJSONObject(i)
@@ -75,7 +78,7 @@ class SplitFragment : Fragment() {
                     Toast.makeText(view, "There is some problem.", Toast.LENGTH_SHORT).show()
                 }
             },
-            { /*textShow_error_msg.text = "There is some problem. Please try again."*/ })
+            { textShow_error_msg.text = "There is some problem. Please try again." })
         queue.add(stringRequest)
     }
 
