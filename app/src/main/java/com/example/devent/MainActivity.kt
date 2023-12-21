@@ -52,8 +52,10 @@ class MainActivity : ComponentActivity() {
                 val jsonArray=jsonObject.getJSONArray("data")
                 val jo=jsonArray.getJSONObject(0)
                 val to=jsonArray.getJSONObject(1)
+                val interestitalAdCounter=jsonArray.getJSONObject(2)
                 gBannerAd=jo.get("setting_value").toString()
                 gIntAd=to.get("setting_value").toString()
+                adCounter= interestitalAdCounter.get("setting_value") as Int
             },
             { textShow_error_msg.text = "Couldnot connect to database." })
         // Add the request to the RequestQueue.
