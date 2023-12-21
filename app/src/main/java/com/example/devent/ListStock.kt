@@ -2,8 +2,6 @@ package com.example.devent
 
 import android.os.Bundle
 import android.view.View
-import android.view.View.VISIBLE
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
@@ -38,7 +36,7 @@ class ListStock : AppCompatActivity() {
 
         /*Show Testing Messages*/
         var textAdCounter = findViewById<TextView>(R.id.textAdCounter)
-        textAdCounter.text= "Adcounter: "+MainActivity.adCounter.toString()
+        textAdCounter.text= "Adcounter: "+MainActivity.adCounter.toString()+"adCounterFinalValue "+MainActivity.adCounterFinalValue
         val textShow_error_msg = findViewById<TextView>(R.id.textErrorDisplay)
         val textRefresh = findViewById<TextView>(R.id.textRefresh)
         if(checkForInternet(this) == false){

@@ -29,7 +29,7 @@ class StockDetails : AppCompatActivity() {
 
         /*Show Testing Messages*/
         var textAdCounter = findViewById<TextView>(R.id.textAdCounter)
-        textAdCounter.text= "Adcounter: "+MainActivity.adCounter.toString()
+        textAdCounter.text= "Adcounter: "+MainActivity.adCounter.toString()+"adCounterFinalValue "+MainActivity.adCounterFinalValue
         val textShow_error_msg = findViewById<TextView>(R.id.textErrorDisplay)
         val textRefresh = findViewById<TextView>(R.id.textRefresh)
         if(checkForInternet(this) == false){

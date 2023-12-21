@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.devent.MainActivity.Companion.adCounter
+import com.example.devent.MainActivity.Companion.adCounterFinalValue
 import com.example.devent.MainActivity.Companion.gIntAd
 
 class CustomAdapter(private val mList: List<ItemsViewModel>, var context:Context) :
@@ -30,7 +31,7 @@ class CustomAdapter(private val mList: List<ItemsViewModel>, var context:Context
         }
         holder.textView2.text = ItemsViewModel.stockExdate.toString()
         holder.itemView.setOnClickListener{
-            if(adCounter==3){
+            if(adCounter==adCounterFinalValue){
                 showInterestitialAd(context, holder, StockDetails(),
                     ItemsViewModel.stockId.toInt(),ItemsViewModel.stockSymbol,
                     ItemsViewModel.stockName,ItemsViewModel.stockExdate,
