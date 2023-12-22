@@ -52,7 +52,7 @@ class NewsFragment : Fragment() {
     fun fetch_datea(view: Context, adapter:CustomAdapter,viewProgressbar: View){
         val queue = Volley.newRequestQueue(view)
         val url = "http://springtown.in/test/fetch_stock.php?stockEntryType=3"
-        val textShow_error_msg = viewProgressbar.findViewById<TextView>(R.id.textErrorDisplay)
+        //val textShow_error_msg = viewProgressbar.findViewById<TextView>(R.id.textErrorDisplay)
         val stringRequest = StringRequest( Request.Method.GET, url,
             { response ->
                 //textShow_error_msg.text = "Response is: ${response}"
@@ -78,7 +78,7 @@ class NewsFragment : Fragment() {
                     Toast.makeText(view, "There is some problem.", Toast.LENGTH_SHORT).show()
                 }
             },
-            { textShow_error_msg.text = "There is some problem. Please try again." })
+            { /*textShow_error_msg.text = "There is some problem. Please try again."*/ })
         queue.add(stringRequest)
     }
 

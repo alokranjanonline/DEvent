@@ -11,15 +11,10 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class ListStock : AppCompatActivity() {
 
-    private var list:ArrayList<ItemsViewModel> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_stock)
         mAdView = findViewById(R.id.adView)
-
-        //val progressCircular = findViewById<ProgressBar>(R.id.progress_circular)
-        //progressCircular.visibility=VISIBLE
-
 
         val mViewPager: ViewPager2 =findViewById(R.id.my_view_pager)
         val mTabLayout: TabLayout =findViewById(R.id.my_tab_layout)

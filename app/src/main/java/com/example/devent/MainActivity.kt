@@ -1,7 +1,6 @@
 package com.example.devent
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -17,7 +16,7 @@ import kotlin.concurrent.timerTask
 class MainActivity : ComponentActivity() {
     companion object {
         var adCounter:Int = 0
-        var adCounterFinalValue:Int=0
+        var adCounterFinalValue:Int=5
         var adError:String=""
         var gBannerAd:String=""
         var gIntAd:String="ca-app-pub-3940256099942544/1033173712"

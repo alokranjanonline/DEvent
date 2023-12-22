@@ -31,7 +31,6 @@ class SplitFragment : Fragment() {
         val adapter = CustomAdapter(list, view.context)
         //Fetch Data from server
         fetch_datea(view.context,adapter,view)
-        //Fetch Data from server
 
         recyclerview = view.findViewById<View>(R.id.recyclerview) as RecyclerView
         recyclerview!!.layoutManager = LinearLayoutManager(activity)
@@ -52,7 +51,7 @@ class SplitFragment : Fragment() {
     fun fetch_datea(view: Context, adapter:CustomAdapter,viewProgressbar: View){
         val queue = Volley.newRequestQueue(view)
         val url = "http://springtown.in/test/fetch_stock.php?stockEntryType=2"
-        val textShow_error_msg = viewProgressbar.findViewById<TextView>(R.id.textErrorDisplay)
+        //val textShow_error_msg = viewProgressbar.findViewById<TextView>(R.id.textErrorDisplay)
         val stringRequest = StringRequest( Request.Method.GET, url,
             { response ->
                 //textShow_error_msg.text = "Response is: ${response}"
@@ -78,7 +77,7 @@ class SplitFragment : Fragment() {
                     Toast.makeText(view, "There is some problem.", Toast.LENGTH_SHORT).show()
                 }
             },
-            { textShow_error_msg.text = "There is some problem. Please try again." })
+            { /*textShow_error_msg.text = "There is some problem. Please try again."*/ })
         queue.add(stringRequest)
     }
 
