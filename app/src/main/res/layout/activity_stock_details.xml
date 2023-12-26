@@ -38,6 +38,7 @@
             android:textSize = "20dp"
             android:textColor="#1E1E1E"
             android:layout_marginLeft="20dp"
+            android:textIsSelectable="true"
             android:id="@+id/scriptSymbol"/>
     </TableRow>
     <TableRow android:background="#FFFFFF" android:padding="5dp">
@@ -55,6 +56,7 @@
             android:textSize = "20dp"
             android:textColor="#1E1E1E"
             android:layout_marginLeft="20dp"
+            android:textIsSelectable="true"
             android:id="@+id/scriptName"/>
     </TableRow>
     <TableRow android:background="#FFFFFF" android:padding="5dp">
@@ -72,6 +74,7 @@
             android:textSize = "20dp"
             android:textColor="#1E1E1E"
             android:layout_marginLeft="20dp"
+            android:textIsSelectable="true"
             android:id="@+id/scriptPurpose"/>
     </TableRow>
     <TableRow android:background="#FFFFFF" android:padding="5dp">
@@ -89,6 +92,7 @@
             android:layout_marginLeft="20dp"
             android:textSize = "20dp"
             android:textColor="#1E1E1E"
+            android:textIsSelectable="true"
             android:id="@+id/scriptExDate"/>
     </TableRow>
 
@@ -107,6 +111,7 @@
             android:layout_marginLeft="20dp"
             android:textSize = "20dp"
             android:textColor="#1E1E1E"
+            android:textIsSelectable="true"
             android:id="@+id/scriptRecordDate"/>
     </TableRow>
 </TableLayout>
