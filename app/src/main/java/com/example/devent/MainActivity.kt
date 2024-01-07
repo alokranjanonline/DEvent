@@ -35,6 +35,7 @@ class MainActivity : ComponentActivity() {
         Timer().schedule(timerTask {
             val intent = Intent(this@MainActivity, ListStock::class.java)
             startActivity(intent)
+            finish()
         }, 1000)
 
 
