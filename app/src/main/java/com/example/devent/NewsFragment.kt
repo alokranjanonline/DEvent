@@ -1,6 +1,7 @@
 package com.example.devent
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -16,10 +18,13 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONObject
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class NewsFragment : Fragment() {
     private var list:ArrayList<ItemsViewModel> = ArrayList()
     private var recyclerview: RecyclerView? = null
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,7 +54,8 @@ class NewsFragment : Fragment() {
 
         return view//inflater.inflate(R.layout.fragment_profile, container, false)
     }
-    fun fetch_datea(view: Context, adapter:CustomAdapter,viewProgressbar: View){
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun fetch_datea(view: Context, adapter:CustomAdapter, viewProgressbar: View){
         val queue = Volley.newRequestQueue(view)
         val url = "http://springtown.in/test/fetch_stock.php?stockEntryType=3"
         //val textShow_error_msg = viewProgressbar.findViewById<TextView>(R.id.textErrorDisplay)
@@ -66,8 +72,17 @@ class NewsFragment : Fragment() {
                         val stockId=jo.get("stockId").toString()
                         val stockSymbol=jo.get("stockSymbol").toString()
                         val stockName=jo.get("stockName").toString()
-                        val stockExdate=jo.get("stockExdate").toString()
-                        val stockRecordDate=jo.get("stockRecordDate").toString()
+                        //val stockExdate=jo.get("stockExdate").toString()
+
+                        val f = DateTimeFormatter.ofPattern("dd-MMM-uuuu")
+                        val stockExdateP = jo.get("stockExdate").toString()
+                        val ed = LocalDate.parse(stockExdateP)
+                        val stockExdate = ed.format(f)
+                        val stockRecordDateP = jo.get("stockRecordDate").toString()
+                        val rd = LocalDate.parse(stockRecordDateP)
+                        val stockRecordDate=rd.format(f)
+
+                        //val stockRecordDate=jo.get("stockRecordDate").toString()
                         val stockPurpose=jo.get("stockPurpose").toString()
                         val stockEntryType=jo.get("stockEntryType").toString()
                         val user=ItemsViewModel(stockId,stockSymbol,stockName,stockExdate,stockRecordDate,stockPurpose,stockEntryType)
