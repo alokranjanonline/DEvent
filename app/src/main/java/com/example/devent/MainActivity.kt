@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
     }
     fun getAdId(view: MainActivity){
         val queue = Volley.newRequestQueue(this)
-        val url = "http://springtown.in/test/fetch_ad_setting.php"
+        val url = "https://www.cflick.com/androidStock/fetch_ad_setting.php"
         val textShow_error_msg = findViewById<TextView>(R.id.textErrorDisplay)
         val textAdCounter = view.findViewById<TextView>(R.id.textAdCounter)
         val stringRequest = StringRequest(Request.Method.POST, url,
