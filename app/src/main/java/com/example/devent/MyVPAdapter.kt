@@ -1,4 +1,4 @@
-package com.example.devent
+package com.thestockeventsnsebse.devent
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

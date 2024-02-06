@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace 'com.example.devent'
+    namespace 'com.thestockeventsnsebse.devent'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.devent"
+        applicationId "com.thestockeventsnsebse.devent"
         minSdk 24
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -22,7 +22,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

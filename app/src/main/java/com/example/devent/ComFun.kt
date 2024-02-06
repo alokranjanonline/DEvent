@@ -1,4 +1,4 @@
-package com.example.devent
+package com.thestockeventsnsebse.devent
 
 import android.app.Activity
 import android.content.Context

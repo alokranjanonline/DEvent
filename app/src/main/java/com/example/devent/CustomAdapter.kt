@@ -1,4 +1,4 @@
-package com.example.devent
+package com.thestockeventsnsebse.devent
 
 import android.content.Context
 import android.content.Intent
@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.devent.MainActivity.Companion.adCounter
-import com.example.devent.MainActivity.Companion.adCounterFinalValue
-import com.example.devent.MainActivity.Companion.gIntAd
+import com.thestockeventsnsebse.devent.MainActivity.Companion.adCounter
+import com.thestockeventsnsebse.devent.MainActivity.Companion.adCounterFinalValue
+import com.thestockeventsnsebse.devent.MainActivity.Companion.gIntAd
 
 class CustomAdapter(private val mList: List<ItemsViewModel>, var context:Context) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {

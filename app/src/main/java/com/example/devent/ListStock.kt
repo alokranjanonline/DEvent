@@ -1,4 +1,4 @@
-package com.example.devent
+package com.thestockeventsnsebse.devent
 
 import android.os.Bundle
 import android.view.View

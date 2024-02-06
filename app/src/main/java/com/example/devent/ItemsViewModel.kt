@@ -1,4 +1,4 @@
-package com.example.devent
+package com.thestockeventsnsebse.devent
 data class ItemsViewModel( val stockId: String,
                            val stockSymbol:String,
                            val stockName: String,
