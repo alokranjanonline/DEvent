@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
         var adCounterFinalValue:Int=5
         var adError:String=""
         var gBannerAd:String=""
-        var gIntAd:String="ca-app-pub-3940256099942544/1033173712"
+        var gIntAd:String="ca-app-pub-8103272807637922/2707500296"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

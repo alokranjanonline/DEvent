@@ -27,7 +27,7 @@
             android:paddingBottom="1dp"
             android:textColor="#ffffff"
             android:text="Script Name"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
