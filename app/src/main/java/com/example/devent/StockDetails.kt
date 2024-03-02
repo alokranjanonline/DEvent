@@ -20,11 +20,17 @@ class StockDetails : AppCompatActivity() {
         val stockExdate = findViewById<TextView>(R.id.scriptExDate)
         val scriptRecordDate = findViewById<TextView>(R.id.scriptRecordDate)
         val stockPurpose = findViewById<TextView>(R.id.scriptPurpose)
+        val textRecordDate = findViewById<TextView>(R.id.textRecordDate)
         stockSymbol.text= intent.getStringExtra("stockSymbol")
         stocksName.text= intent.getStringExtra("stockName")
         stockPurpose.text=intent.getStringExtra("stockPurpose")
         stockExdate.text= intent.getStringExtra("stockExdate")
-        scriptRecordDate.text= intent.getStringExtra("stockRecordDate")
+        if(intent.getStringExtra("stockRecordDate")=="01-Jan-1970") {
+            textRecordDate.visibility= View.GONE
+            scriptRecordDate.visibility= View.GONE
+        }else{
+            scriptRecordDate.text = intent.getStringExtra("stockRecordDate")
+        }
 
 
         /*Show Testing Messages*/

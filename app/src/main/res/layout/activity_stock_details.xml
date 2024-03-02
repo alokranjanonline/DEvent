@@ -105,6 +105,7 @@
             android:layout_weight="1"
             android:textSize = "20sp"
             android:textColor="#1E1E1E"
+            android:id="@+id/textRecordDate"
             android:text="Record Date" />
         <TextView
             android:layout_width="wrap_content"
