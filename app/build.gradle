@@ -6,13 +6,13 @@ plugins {
 
 android {
     namespace 'com.thestockeventsnsebse.devent'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.thestockeventsnsebse.devent"
         minSdk 24
-        targetSdk 33
-        versionCode 8
+        targetSdk 34
+        versionCode 10
         versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
