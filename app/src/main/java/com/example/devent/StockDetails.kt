@@ -33,7 +33,7 @@ class StockDetails : AppCompatActivity() {
         }
 
 
-        /*Show Testing Messages*/
+        /*Show Testing Messages */
         var textAdCounter = findViewById<TextView>(R.id.textAdCounter)
         textAdCounter.text= "Adcounter: "+MainActivity.adCounter.toString()+"adCounterFinalValue "+MainActivity.adCounterFinalValue
         val textShow_error_msg = findViewById<TextView>(R.id.textErrorDisplay)
